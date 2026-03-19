@@ -32,6 +32,7 @@
             MessageList = new ListBox();
             EnterMessage = new TextBox();
             BtnEnter = new Button();
+            ListCounter = new Label();
             SuspendLayout();
             // 
             // MainLabel
@@ -44,7 +45,6 @@
             MainLabel.Size = new Size(385, 64);
             MainLabel.TabIndex = 0;
             MainLabel.Text = "에코 메신저";
-       
             // 
             // MessageList
             // 
@@ -78,12 +78,26 @@
             BtnEnter.Click += BtnEnter_Click;
             BtnEnter.KeyDown += BtnEnter_KeyDown;
             // 
+            // ListCounter
+            // 
+            ListCounter.AutoSize = true;
+            ListCounter.BackColor = Color.White;
+            ListCounter.Font = new Font("새굴림", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 129);
+            ListCounter.Location = new Point(56, 323);
+            ListCounter.Name = "ListCounter";
+            ListCounter.Size = new Size(117, 19);
+            ListCounter.TabIndex = 4;
+            ListCounter.Text = "현재 대화 : ";
+            ListCounter.Click += label1_Click;
+            
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(800, 450);
+            Controls.Add(ListCounter);
             Controls.Add(BtnEnter);
             Controls.Add(EnterMessage);
             Controls.Add(MessageList);
@@ -101,5 +115,6 @@
         private ListBox MessageList;
         private TextBox EnterMessage;
         private Button BtnEnter;
+        private Label ListCounter;
     }
 }
