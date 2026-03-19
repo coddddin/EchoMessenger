@@ -23,6 +23,7 @@ namespace EchoMessenger
 
             MessageList.Items.Add(message);
             EnterMessage.Clear();
+            EnterMessage.Focus();
         }
 
         private void MessageList_DataContextChanged(object sender, EventArgs e)
