@@ -25,7 +25,6 @@ namespace EchoMessenger
         {
             string message = EnterMessage.Text;
             string finalMessage = message.Trim();
-            string result = $"[{DateTime.Now:yyyy-MM-dd HH:mm}] {finalMessage}";
 
             if (string.IsNullOrWhiteSpace(message))
             {
@@ -33,7 +32,15 @@ namespace EchoMessenger
                 EnterMessage.Focus();
                 return;
             }
+            
+            if (finalMessage.Length > 50)
+            {
+                MessageBox.Show("메시지는 50자 이내로 입력해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                EnterMessage.Focus();
+                return;
+            }
 
+            string result = $"[{DateTime.Now:yyyy-MM-dd HH:mm}] {finalMessage}";
             MessageList.Items.Add(result);
             ListCounter_Updatelbl();
             EnterMessage.Clear();
@@ -54,7 +61,7 @@ namespace EchoMessenger
             {
                 string message = EnterMessage.Text;
                 string finalMessage = message.Trim();
-                string result = $"[{DateTime.Now:yyyy-MM-dd HH:mm}] {finalMessage}";
+                
 
                 if (string.IsNullOrWhiteSpace(message))
                 {
@@ -64,7 +71,15 @@ namespace EchoMessenger
                     e.Handled = true;
                     return;
                 }
+                if (finalMessage.Length > 50)
+                {
+                    MessageBox.Show("메시지는 50자 이내로 입력해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    EnterMessage.Focus();
+                    e.Handled = true;
+                    return;
+                }
 
+                string result = $"[{DateTime.Now:yyyy-MM-dd HH:mm}] {finalMessage}";
                 MessageList.Items.Add(result);
 
                 ListCounter_Updatelbl();
@@ -76,12 +91,6 @@ namespace EchoMessenger
                 e.Handled = true;
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         // 함수 추가: 라벨 업데이트 함수
         private void ListCounter_Updatelbl()
         {
@@ -89,7 +98,7 @@ namespace EchoMessenger
             ListCounter.Text = $"현재대화: {count}개";
         }
 
-        private void BtnReset_Click(object sender, EventArgs e)
+        private void BtnReset_Click(object sender, EventArgs e) // 대화 초기화 버튼 클릭 이벤트 핸들러
         {
             MessageList.Items.Clear();
             ListCounter_Updatelbl();
@@ -103,7 +112,7 @@ namespace EchoMessenger
                 MessageList.Items.RemoveAt(MessageList.SelectedIndex);
                 ListCounter_Updatelbl();
             }
-            else
+            else // 선택된 항목이 없는 경우 사용자에게 알림
             {
                 MessageBox.Show("삭제할 메시지를 선택해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

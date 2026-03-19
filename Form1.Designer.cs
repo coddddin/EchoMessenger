@@ -90,7 +90,7 @@
             ListCounter.Size = new Size(117, 19);
             ListCounter.TabIndex = 4;
             ListCounter.Text = "현재 대화 : ";
-            ListCounter.Click += label1_Click;
+            
             // 
             // BtnReset
             // 
