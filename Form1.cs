@@ -92,7 +92,21 @@ namespace EchoMessenger
         private void BtnReset_Click(object sender, EventArgs e)
         {
             MessageList.Items.Clear();
-         
+            ListCounter_Updatelbl();
+        }
+
+        private void BtnSelectDelete_Click(object sender, EventArgs e)
+        {
+            // 선택된 항목이 있는지 확인 후 삭제 (예외 처리)
+            if (MessageList.SelectedIndex >= 0)
+            {
+                MessageList.Items.RemoveAt(MessageList.SelectedIndex);
+                ListCounter_Updatelbl();
+            }
+            else
+            {
+                MessageBox.Show("삭제할 메시지를 선택해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

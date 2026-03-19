@@ -34,6 +34,7 @@
             BtnEnter = new Button();
             ListCounter = new Label();
             BtnReset = new Button();
+            BtnSelectDelete = new Button();
             SuspendLayout();
             // 
             // MainLabel
@@ -51,9 +52,9 @@
             // 
             MessageList.Font = new Font("한컴 고딕", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 129);
             MessageList.FormattingEnabled = true;
-            MessageList.Location = new Point(47, 100);
+            MessageList.Location = new Point(47, 99);
             MessageList.Name = "MessageList";
-            MessageList.Size = new Size(683, 221);
+            MessageList.Size = new Size(718, 221);
             MessageList.TabIndex = 1;
             // 
             // EnterMessage
@@ -69,10 +70,10 @@
             // 
             BtnEnter.BackColor = Color.Cyan;
             BtnEnter.Cursor = Cursors.Hand;
-            BtnEnter.Font = new Font("한컴 고딕", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            BtnEnter.Location = new Point(567, 339);
+            BtnEnter.Font = new Font("한컴 고딕", 24F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            BtnEnter.Location = new Point(545, 339);
             BtnEnter.Name = "BtnEnter";
-            BtnEnter.Size = new Size(163, 65);
+            BtnEnter.Size = new Size(101, 65);
             BtnEnter.TabIndex = 3;
             BtnEnter.Text = "전 송";
             BtnEnter.UseVisualStyleBackColor = false;
@@ -94,14 +95,28 @@
             // BtnReset
             // 
             BtnReset.BackColor = Color.IndianRed;
-            BtnReset.Font = new Font("맑은 고딕", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            BtnReset.Location = new Point(642, 63);
+            BtnReset.Font = new Font("맑은 고딕", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            BtnReset.Location = new Point(652, 339);
             BtnReset.Name = "BtnReset";
-            BtnReset.Size = new Size(88, 43);
+            BtnReset.Size = new Size(113, 65);
             BtnReset.TabIndex = 5;
             BtnReset.Text = "초기화";
             BtnReset.UseVisualStyleBackColor = false;
             BtnReset.Click += BtnReset_Click;
+            // 
+            // BtnSelectDelete
+            // 
+            BtnSelectDelete.BackColor = Color.Gray;
+            BtnSelectDelete.FlatStyle = FlatStyle.Popup;
+            BtnSelectDelete.Font = new Font("맑은 고딕", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 129);
+            BtnSelectDelete.ForeColor = Color.FromArgb(64, 0, 0);
+            BtnSelectDelete.Location = new Point(615, 60);
+            BtnSelectDelete.Name = "BtnSelectDelete";
+            BtnSelectDelete.Size = new Size(150, 33);
+            BtnSelectDelete.TabIndex = 6;
+            BtnSelectDelete.Text = "선택 문자 삭제";
+            BtnSelectDelete.UseVisualStyleBackColor = false;
+            BtnSelectDelete.Click += BtnSelectDelete_Click;
             // 
             // Form1
             // 
@@ -109,6 +124,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(800, 450);
+            Controls.Add(BtnSelectDelete);
             Controls.Add(BtnReset);
             Controls.Add(ListCounter);
             Controls.Add(BtnEnter);
@@ -130,5 +146,6 @@
         private Button BtnEnter;
         private Label ListCounter;
         private Button BtnReset;
+        private Button BtnSelectDelete;
     }
 }
