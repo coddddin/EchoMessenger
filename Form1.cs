@@ -60,7 +60,7 @@ namespace EchoMessenger
                 {
                     EnterMessage.Clear();
                     EnterMessage.Focus();
-                    
+
                     e.Handled = true;
                     return;
                 }
@@ -68,7 +68,7 @@ namespace EchoMessenger
                 MessageList.Items.Add(result);
 
                 ListCounter_Updatelbl();
-                
+
                 EnterMessage.Clear();
                 EnterMessage.Focus();
 
@@ -87,6 +87,12 @@ namespace EchoMessenger
         {
             int count = MessageList.Items.Count;
             ListCounter.Text = $"현재대화: {count}개";
+        }
+
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+            MessageList.Items.Clear();
+         
         }
     }
 }

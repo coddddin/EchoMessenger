@@ -33,6 +33,7 @@
             EnterMessage = new TextBox();
             BtnEnter = new Button();
             ListCounter = new Label();
+            BtnReset = new Button();
             SuspendLayout();
             // 
             // MainLabel
@@ -89,7 +90,18 @@
             ListCounter.TabIndex = 4;
             ListCounter.Text = "현재 대화 : ";
             ListCounter.Click += label1_Click;
-            
+            // 
+            // BtnReset
+            // 
+            BtnReset.BackColor = Color.IndianRed;
+            BtnReset.Font = new Font("맑은 고딕", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            BtnReset.Location = new Point(642, 63);
+            BtnReset.Name = "BtnReset";
+            BtnReset.Size = new Size(88, 43);
+            BtnReset.TabIndex = 5;
+            BtnReset.Text = "초기화";
+            BtnReset.UseVisualStyleBackColor = false;
+            BtnReset.Click += BtnReset_Click;
             // 
             // Form1
             // 
@@ -97,6 +109,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(800, 450);
+            Controls.Add(BtnReset);
             Controls.Add(ListCounter);
             Controls.Add(BtnEnter);
             Controls.Add(EnterMessage);
@@ -116,5 +129,6 @@
         private TextBox EnterMessage;
         private Button BtnEnter;
         private Label ListCounter;
+        private Button BtnReset;
     }
 }
