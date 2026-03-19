@@ -61,8 +61,8 @@ namespace EchoMessenger
             {
                 string message = EnterMessage.Text;
                 string finalMessage = message.Trim();
-                
 
+                // 입력된 메시지가 비어있거나 공백으로만 이루어진 경우 처리
                 if (string.IsNullOrWhiteSpace(message))
                 {
                     EnterMessage.Clear();
